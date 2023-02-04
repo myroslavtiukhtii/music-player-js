@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HomePage</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230204192830">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+			</div>
+		</header>
+		<main class="page">
+			<section class="main">
+				<div class="main__container">
+					<div class="main__block">
+						<div class="main__picture">
+							<picture><source srcset="img/pictures/dorofeeva-picture.webp" type="image/webp"><img class="cover" src="img/pictures/dorofeeva-picture.jpg" alt=""></picture>
+						</div>
+						<div class="main__title">
+							<h2 class="title__song-name">
+								вотсап
+							</h2>
+							<h3 class="title__song-artist">
+								DOROFEEVA
+							</h3>
+						</div>
+						<div class="main__buttons">
+							<audio class="audio" src="./music/dorofeeva-vatsapp.mp3" type="audio/mpeg" preload=”metadata” loop></audio>
+							<button class="buttons__prev">
+								<svg class="icon">
+									<use xlink:href="img/icons/icons.svg#backward-step-solid"></use>
+								</svg>
+							</button>
+							<button class="buttons__play">
+								<div class="icon"></div>
+							</button>
+							<button class="buttons__next">
+								<svg class="icon">
+									<use xlink:href="img/icons/icons.svg#forward-step-solid"></use>
+								</svg>
+							</button>
+							<div class="buttons__seek">
+								<span class="current-time">0.00</span>
+								<input type="range" min="0" max="100">
+								<span class="end-time">0.00</span>
+								<button class="mute">
+									<svg>
+										<use xlink:href="img/icons/icons.svg#volume-icon"></use>
+									</svg>
+									<span class="mute__icon active"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20230204192830"></script>
+</body>
+
+</html>
