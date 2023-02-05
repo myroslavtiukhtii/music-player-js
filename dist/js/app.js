@@ -22,30 +22,58 @@
             }));
         }
     }), 0);
-    const PLAYBTN = document.querySelector(".buttons__play");
-    PLAYBTN.addEventListener("click", startPlay);
-    function startPlay() {
-        PLAYBTN.classList.toggle("active");
-    }
-    const MUTEBTN = document.querySelector(".mute");
-    MUTEBTN.addEventListener("click", muteMusic);
-    function muteMusic() {
-        MUTEBTN.classList.toggle("active");
-    }
     const AUDIO = document.querySelector(".audio");
+    const PLAYBTN = document.querySelector(".buttons__play");
     const DURATIONTIME = document.querySelector(".end-time");
+    const SEEKSLIDER = document.querySelector(".seek-slider");
+    const CURRENTTIME = document.querySelector(".current-time");
+    const MUTEBTN = document.querySelector(".mute");
+    let data = false;
+    AUDIO.addEventListener("loadedmetadata", (() => {
+        setSliderMax();
+        getDuration();
+        data = true;
+    }));
+    const setSliderMax = () => {
+        SEEKSLIDER.max = Math.floor(AUDIO.duration);
+    };
+    function getDuration() {
+        DURATIONTIME.textContent = calculateTime(AUDIO.duration);
+    }
     const calculateTime = secs => {
         const minutes = Math.floor(secs / 60);
         const seconds = Math.floor(secs % 60);
         const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
         return `${minutes}:${returnedSeconds}`;
     };
-    const displayDuration = () => {
-        DURATIONTIME.textContent = calculateTime(AUDIO.duration);
-    };
-    if (AUDIO.readyState > 0) displayDuration(); else AUDIO.addEventListener("loadedmetadata", (() => {
-        displayDuration();
+    PLAYBTN.addEventListener("click", startPlay);
+    let playState = false;
+    function startPlay() {
+        if (false == playState && true == data) {
+            playState = true;
+            AUDIO.play();
+            PLAYBTN.classList.toggle("active");
+        } else if (true == playState) {
+            AUDIO.pause();
+            playState = false;
+            PLAYBTN.classList.toggle("active");
+        }
+    }
+    SEEKSLIDER.addEventListener("input", (() => {
+        CURRENTTIME.textContent = calculateTime(SEEKSLIDER.value);
     }));
+    SEEKSLIDER.addEventListener("change", (() => {
+        AUDIO.currentTime = SEEKSLIDER.value;
+    }));
+    AUDIO.addEventListener("timeupdate", (() => {
+        SEEKSLIDER.value = Math.floor(AUDIO.currentTime);
+        CURRENTTIME.textContent = calculateTime(SEEKSLIDER.value);
+    }));
+    MUTEBTN.addEventListener("click", muteMusic);
+    function muteMusic() {
+        MUTEBTN.classList.toggle("active");
+        AUDIO.muted = !AUDIO.muted;
+    }
     window["FLS"] = true;
     isWebp();
 })();
