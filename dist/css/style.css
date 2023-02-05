@@ -219,7 +219,9 @@ svg path {
 
 .main {
   min-height: 100vh;
-  background-color: #b0a1a1;
+  background: rgb(47, 101, 53);
+  background: -o-radial-gradient(circle, rgb(47, 101, 53) 0%, rgb(112, 112, 112) 100%);
+  background: radial-gradient(circle, rgb(47, 101, 53) 0%, rgb(112, 112, 112) 100%);
 }
 
 .main__container .main__block {
@@ -232,8 +234,8 @@ svg path {
   min-height: 550px;
   min-width: 280px;
   border: 1px solid transparent;
-  border-radius: 5px;
-  background-color: #fff;
+  border-radius: 25px;
+  background-color: #ffffff;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -241,6 +243,8 @@ svg path {
   -ms-grid-rows: 300px 70px 130px;
   grid-template-rows: 300px 70px 130px;
   padding: 25px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .main__container .main__block .main__picture {
@@ -284,8 +288,8 @@ svg path {
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  -ms-grid-rows: 55px 50px 1fr;
+  grid-template-rows: 55px 50px 1fr;
   place-items: center;
 }
 
@@ -354,26 +358,27 @@ svg path {
 
 .main__container .main__block .main__buttons .buttons__seek input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
-  height: 5px;
+  height: 10px;
   cursor: pointer;
   animate: 0.2s;
   -webkit-box-shadow: 1px 1px 1px #000000;
           box-shadow: 1px 1px 1px #000000;
   background: #707070;
   border-radius: 5px;
-  border: 1px solid #000000;
+  border: 1px solid transparent;
+  border-radius: 50%;
 }
 
 .main__container .main__block .main__buttons .buttons__seek input[type=range]::-webkit-slider-thumb {
   -webkit-box-shadow: 1px 1px 1px #000000;
           box-shadow: 1px 1px 1px #000000;
-  border: 1px solid #000000;
-  height: 15px;
-  width: 5px;
-  border-radius: 5px;
+  border: 1px solid #707070;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
   background: #FFFFFF;
   cursor: pointer;
-  margin-top: -6px;
+  margin-top: -11px;
   -webkit-appearance: none;
 }
 
@@ -388,16 +393,16 @@ svg path {
   animate: 0.2s;
   box-shadow: 1px 1px 1px #000000;
   background: #707070;
-  border-radius: 5px;
-  border: 1px solid #000000;
+  border-radius: 50%;
+  border: 1px solid transparent;
 }
 
 .main__container .main__block .main__buttons .buttons__seek input[type=range]::-moz-range-thumb {
   box-shadow: 1px 1px 1px #000000;
-  border: 1px solid #000000;
+  border: 1px solid transparent;
   height: 30px;
   width: 15px;
-  border-radius: 5px;
+  border-radius: 50%;
   background: #FFFFFF;
   cursor: pointer;
 }
@@ -445,11 +450,29 @@ svg path {
   background: #707070;
 }
 
-.main__container .main__block .main__buttons .mute {
+.main__container .main__block .main__buttons .buttons__bottom {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: 3/1/4/4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.main__container .main__block .main__buttons .buttons__bottom .mute {
   position: relative;
 }
 
-.main__container .main__block .main__buttons .mute .mute__icon {
+.main__container .main__block .main__buttons .buttons__bottom .mute .mute__icon {
   position: absolute;
   right: -4px;
   top: 3px;
@@ -464,7 +487,7 @@ svg path {
   transition: right 0.3s ease-in;
 }
 
-.main__container .main__block .main__buttons .mute.active .mute__icon {
+.main__container .main__block .main__buttons .buttons__bottom .mute.active .mute__icon {
   content: url(../img/cross-icon.svg);
   color: #000000;
   right: -8px;
@@ -476,6 +499,11 @@ svg path {
           animation-duration: 0.8s;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
+}
+
+.main__container .main__block .main__buttons .buttons__bottom .loop .loop__icon {
+  width: 25px;
+  height: 25px;
 }
 
 @media (min-width: 75em) {
