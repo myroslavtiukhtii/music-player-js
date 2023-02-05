@@ -229,8 +229,8 @@ svg path {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 350px;
-  height: 550px;
+  min-height: 550px;
+  min-width: 280px;
   border: 1px solid transparent;
   border-radius: 5px;
   background-color: #fff;
@@ -476,4 +476,30 @@ svg path {
           animation-duration: 0.8s;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
+}
+
+@media (min-width: 75em) {
+  .main__container .main__block {
+    width: 21.875rem;
+  }
+}
+
+@media (max-width: 20em) {
+  .main__container .main__block {
+    width: 18.75rem;
+  }
+}
+
+@media (min-width: 20em) and (max-width: 75em) {
+@supports (width: clamp( 18.75rem , 17.6136363636rem  +  5.6818181818vw , 21.875rem )) {
+    .main__container .main__block {
+      width: clamp( 18.75rem , 17.6136363636rem  +  5.6818181818vw , 21.875rem );
+    }
+}
+
+@supports not (width: clamp( 18.75rem , 17.6136363636rem  +  5.6818181818vw , 21.875rem )) {
+    .main__container .main__block {
+      width: calc(18.75rem + 3.125 * (100vw - 20rem) / 55);
+    }
+}
 }

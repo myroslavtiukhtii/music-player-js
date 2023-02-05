@@ -68,6 +68,11 @@
     AUDIO.addEventListener("timeupdate", (() => {
         SEEKSLIDER.value = Math.floor(AUDIO.currentTime);
         CURRENTTIME.textContent = calculateTime(SEEKSLIDER.value);
+        if (AUDIO.ended) {
+            AUDIO.currentTime = 0;
+            PLAYBTN.classList.toggle("active");
+            playState = false;
+        }
     }));
     MUTEBTN.addEventListener("click", muteMusic);
     function muteMusic() {
