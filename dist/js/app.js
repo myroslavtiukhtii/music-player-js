@@ -32,6 +32,7 @@
     const SONGNAME = document.querySelector(".title__song-name");
     const ARTISTNAME = document.querySelector(".title__song-artist");
     const LOOPBTN = document.querySelector(".loop");
+    const BLURIMG = document.querySelector(".cover__blur");
     let data = false;
     let songs = [ {
         artist: "Coldplay",
@@ -102,6 +103,7 @@
     function addPlaylists() {
         if (songTracker > songs.length - 1) songTracker = 0;
         if (songTracker < 0) songTracker = 0;
+        BLURIMG.src = songs[songTracker].imgSrc;
         COVERIMG.src = songs[songTracker].imgSrc;
         SONGNAME.innerHTML = songs[songTracker].songName;
         ARTISTNAME.innerHTML = songs[songTracker].artist;
