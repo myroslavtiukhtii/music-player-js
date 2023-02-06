@@ -165,6 +165,127 @@ svg path {
   }
 }
 
+body {
+  margin: auto;
+  overflow: auto;
+  background: -o-linear-gradient(135deg, rgb(101, 0, 94) 3%, rgb(60, 132, 206) 38%, rgb(48, 238, 226) 68%, rgb(255, 25, 25) 98%);
+  background: linear-gradient(315deg, rgb(101, 0, 94) 3%, rgb(60, 132, 206) 38%, rgb(48, 238, 226) 68%, rgb(255, 25, 25) 98%);
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.wave {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 1000% 1000% 0 0;
+  position: fixed;
+  width: 200%;
+  height: 12em;
+  -webkit-animation: wave 10s -3s linear infinite;
+          animation: wave 10s -3s linear infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+  bottom: -2.5em;
+  animation: wave 20s -1s reverse infinite;
+  opacity: 0.9;
+}
+
+@-webkit-keyframes wave {
+  2% {
+    -webkit-transform: translateX(1);
+            transform: translateX(1);
+  }
+
+  25% {
+    -webkit-transform: translateX(-25%);
+            transform: translateX(-25%);
+  }
+
+  50% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+
+  75% {
+    -webkit-transform: translateX(-25%);
+            transform: translateX(-25%);
+  }
+
+  100% {
+    -webkit-transform: translateX(1);
+            transform: translateX(1);
+  }
+}
+
+@keyframes wave {
+  2% {
+    -webkit-transform: translateX(1);
+            transform: translateX(1);
+  }
+
+  25% {
+    -webkit-transform: translateX(-25%);
+            transform: translateX(-25%);
+  }
+
+  50% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+
+  75% {
+    -webkit-transform: translateX(-25%);
+            transform: translateX(-25%);
+  }
+
+  100% {
+    -webkit-transform: translateX(1);
+            transform: translateX(1);
+  }
+}
+
 /*
 .icon-menu {
 	display: none;
@@ -219,9 +340,6 @@ svg path {
 
 .main {
   min-height: 100vh;
-  background: rgb(47, 101, 53);
-  background: -o-radial-gradient(circle, rgb(47, 101, 53) 0%, rgb(112, 112, 112) 100%);
-  background: radial-gradient(circle, rgb(47, 101, 53) 0%, rgb(112, 112, 112) 100%);
 }
 
 .main__container .main__block {
@@ -235,7 +353,7 @@ svg path {
   min-width: 280px;
   border: 1px solid transparent;
   border-radius: 25px;
-  background-color: #ffffff;
+  background-color: #d1ef8b;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -259,9 +377,11 @@ svg path {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   border-radius: 50%;
-  height: 80%;
+  height: 250px;
+  width: 250px;
   -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  z-index: 5;
 }
 
 .main__container .main__block .main__title {
@@ -350,6 +470,7 @@ svg path {
   -webkit-appearance: none;
   margin: 10px 0;
   width: 100%;
+  background-color: #d1ef8b;
 }
 
 .main__container .main__block .main__buttons .buttons__seek input[type=range]:focus {
@@ -363,7 +484,7 @@ svg path {
   animate: 0.2s;
   -webkit-box-shadow: 1px 1px 1px #000000;
           box-shadow: 1px 1px 1px #000000;
-  background: #707070;
+  background: #000000;
   border-radius: 5px;
   border: 1px solid transparent;
   border-radius: 50%;
@@ -372,7 +493,7 @@ svg path {
 .main__container .main__block .main__buttons .buttons__seek input[type=range]::-webkit-slider-thumb {
   -webkit-box-shadow: 1px 1px 1px #000000;
           box-shadow: 1px 1px 1px #000000;
-  border: 1px solid #707070;
+  border: 1px solid #d1ef8b;
   height: 30px;
   width: 30px;
   border-radius: 50%;
@@ -383,7 +504,7 @@ svg path {
 }
 
 .main__container .main__block .main__buttons .buttons__seek input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #707070;
+  background: #000;
 }
 
 .main__container .main__block .main__buttons .buttons__seek input[type=range]::-moz-range-track {
@@ -392,7 +513,7 @@ svg path {
   cursor: pointer;
   animate: 0.2s;
   box-shadow: 1px 1px 1px #000000;
-  background: #707070;
+  background: #d1ef8b;
   border-radius: 50%;
   border: 1px solid transparent;
 }
@@ -403,7 +524,7 @@ svg path {
   height: 30px;
   width: 15px;
   border-radius: 50%;
-  background: #FFFFFF;
+  background: #d1ef8b;
   cursor: pointer;
 }
 
@@ -438,7 +559,7 @@ svg path {
   height: 30px;
   width: 15px;
   border-radius: 5px;
-  background: #FFFFFF;
+  background: #d1ef8b;
   cursor: pointer;
 }
 
@@ -504,6 +625,18 @@ svg path {
 .main__container .main__block .main__buttons .buttons__bottom .loop .loop__icon {
   width: 25px;
   height: 25px;
+  -webkit-transition: 0.3s ease-in;
+  -o-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
+  opacity: 0.7;
+}
+
+.main__container .main__block .main__buttons .buttons__bottom .loop .loop__icon.active {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  opacity: 1;
+  scale: 1.1;
 }
 
 @media (min-width: 75em) {

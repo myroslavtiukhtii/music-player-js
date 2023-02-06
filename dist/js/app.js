@@ -28,7 +28,27 @@
     const SEEKSLIDER = document.querySelector(".seek-slider");
     const CURRENTTIME = document.querySelector(".current-time");
     const MUTEBTN = document.querySelector(".mute");
+    const COVERIMG = document.querySelector(".cover");
+    const SONGNAME = document.querySelector(".title__song-name");
+    const ARTISTNAME = document.querySelector(".title__song-artist");
+    const LOOPBTN = document.querySelector(".loop");
     let data = false;
+    let songs = [ {
+        artist: "Coldplay",
+        songName: "A Sky Full of Stars",
+        audioSrc: "https://upload.wikimedia.org/wikipedia/en/d/d2/Coldplay_-_A_Sky_Full_of_Stars_sample.ogg",
+        imgSrc: "../img/pictures/Coldplay_-_A_Sky_Full_of_Stars_(Single).png"
+    }, {
+        artist: "Lana Del Rey",
+        songName: "Summertime Sadness",
+        audioSrc: "https://upload.wikimedia.org/wikipedia/en/c/c0/Lana_Del_Rey_-_Summertime_Sadness.ogg",
+        imgSrc: "../img/pictures/SummertimeSadnessOfficial.png"
+    }, {
+        artist: "Linkin Park",
+        songName: "In the End",
+        audioSrc: "https://upload.wikimedia.org/wikipedia/en/4/48/In_the_End.ogg",
+        imgSrc: "../img/pictures/LinkinParkIntheEnd.jpg"
+    } ];
     AUDIO.addEventListener("loadedmetadata", (() => {
         setSliderMax();
         getDuration();
@@ -65,6 +85,7 @@
     SEEKSLIDER.addEventListener("change", (() => {
         AUDIO.currentTime = SEEKSLIDER.value;
     }));
+    let songTracker = 0;
     AUDIO.addEventListener("timeupdate", (() => {
         SEEKSLIDER.value = Math.floor(AUDIO.currentTime);
         CURRENTTIME.textContent = calculateTime(SEEKSLIDER.value);
@@ -72,8 +93,52 @@
             AUDIO.currentTime = 0;
             PLAYBTN.classList.toggle("active");
             playState = false;
+            songTracker++;
+            addPlaylists();
+            startPlay();
         }
     }));
+    songs.forEach(addPlaylists);
+    function addPlaylists() {
+        if (songTracker > songs.length - 1) songTracker = 0;
+        if (songTracker < 0) songTracker = 0;
+        COVERIMG.src = songs[songTracker].imgSrc;
+        SONGNAME.innerHTML = songs[songTracker].songName;
+        ARTISTNAME.innerHTML = songs[songTracker].artist;
+        AUDIO.src = songs[songTracker].audioSrc;
+    }
+    LOOPBTN.addEventListener("click", toLoopSong);
+    let loop = false;
+    function toLoopSong() {
+        const ICONLOOP = document.querySelector(".loop__icon");
+        ICONLOOP.classList.toggle("active");
+        if (AUDIO.hasAttribute("loop")) {
+            AUDIO.removeAttribute("loop");
+            loop = false;
+        } else {
+            loop = true;
+            AUDIO.setAttribute("loop", "true");
+        }
+    }
+    const BTNPREV = document.querySelector(".buttons__prev");
+    const BTNNEXT = document.querySelector(".buttons__next");
+    BTNNEXT.addEventListener("click", toNextSong);
+    BTNPREV.addEventListener("click", toPrevSong);
+    function toNextSong() {
+        songTracker++;
+        addPlaylists();
+        if (playState = true) AUDIO.play();
+        AUDIO.currentTime = 0;
+        PLAYBTN.classList.add("active");
+    }
+    function toPrevSong() {
+        songTracker--;
+        addPlaylists();
+        if (playState = true) AUDIO.play();
+        AUDIO.play();
+        AUDIO.currentTime = 0;
+        PLAYBTN.classList.add("active");
+    }
     MUTEBTN.addEventListener("click", muteMusic);
     function muteMusic() {
         MUTEBTN.classList.toggle("active");
