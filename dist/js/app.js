@@ -37,17 +37,17 @@
         artist: "Coldplay",
         songName: "A Sky Full of Stars",
         audioSrc: "https://upload.wikimedia.org/wikipedia/en/d/d2/Coldplay_-_A_Sky_Full_of_Stars_sample.ogg",
-        imgSrc: "../img/pictures/Coldplay_-_A_Sky_Full_of_Stars_(Single).png"
+        imgSrc: "./img/pictures/Coldplay_-_A_Sky_Full_of_Stars_(Single).png"
     }, {
         artist: "Lana Del Rey",
         songName: "Summertime Sadness",
         audioSrc: "https://upload.wikimedia.org/wikipedia/en/c/c0/Lana_Del_Rey_-_Summertime_Sadness.ogg",
-        imgSrc: "../img/pictures/SummertimeSadnessOfficial.png"
+        imgSrc: "./img/pictures/SummertimeSadnessOfficial.png"
     }, {
         artist: "Linkin Park",
         songName: "In the End",
         audioSrc: "https://upload.wikimedia.org/wikipedia/en/4/48/In_the_End.ogg",
-        imgSrc: "../img/pictures/LinkinParkIntheEnd.jpg"
+        imgSrc: "./img/pictures/LinkinParkIntheEnd.jpg"
     } ];
     AUDIO.addEventListener("loadedmetadata", (() => {
         setSliderMax();

@@ -145,6 +145,14 @@ svg path {
      object-fit: contain;
 }
 
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 @-webkit-keyframes opacities {
   0% {
     opacity: 0;
@@ -363,6 +371,7 @@ body {
   padding: 25px;
   -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border: 1px solid #000;
 }
 
 .main__container .main__block .main__picture {
@@ -593,13 +602,18 @@ body {
   position: relative;
 }
 
+.main__container .main__block .main__buttons .buttons__bottom .mute svg {
+  width: 18px;
+  height: 18px;
+}
+
 .main__container .main__block .main__buttons .buttons__bottom .mute .mute__icon {
   position: absolute;
   right: -4px;
-  top: 3px;
+  top: 1px;
   display: block;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border: 1px solid #000;
   border-radius: 50%;
   border-color: transparent #000 transparent transparent;
@@ -611,8 +625,8 @@ body {
 .main__container .main__block .main__buttons .buttons__bottom .mute.active .mute__icon {
   content: url(../img/cross-icon.svg);
   color: #000000;
-  right: -8px;
-  top: 2px;
+  right: -12px;
+  top: 1px;
   border: unset;
   -webkit-animation-name: opacities;
           animation-name: opacities;
