@@ -74,10 +74,12 @@
             playState = true;
             AUDIO.play();
             PLAYBTN.classList.toggle("active");
+            COVERIMG.classList.toggle("active");
         } else if (true == playState) {
             AUDIO.pause();
             playState = false;
             PLAYBTN.classList.toggle("active");
+            COVERIMG.classList.toggle("active");
         }
     }
     SEEKSLIDER.addEventListener("input", (() => {
@@ -93,6 +95,7 @@
         if (AUDIO.ended) {
             AUDIO.currentTime = 0;
             PLAYBTN.classList.toggle("active");
+            COVERIMG.classList.toggle("active");
             playState = false;
             songTracker++;
             addPlaylists();
@@ -132,6 +135,7 @@
         if (playState = true) AUDIO.play();
         AUDIO.currentTime = 0;
         PLAYBTN.classList.add("active");
+        COVERIMG.classList.add("active");
     }
     function toPrevSong() {
         songTracker--;
@@ -140,6 +144,7 @@
         AUDIO.play();
         AUDIO.currentTime = 0;
         PLAYBTN.classList.add("active");
+        COVERIMG.classList.add("active");
     }
     MUTEBTN.addEventListener("click", muteMusic);
     function muteMusic() {
