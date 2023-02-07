@@ -127,10 +127,24 @@
             startPlay();
         }
     }));
+    const LIKEBTN = document.querySelector(".main__like");
+    let likedSong = [];
+    LIKEBTN.addEventListener("click", (() => {
+        if (likedSong.includes(songTracker)) {
+            for (let i = 0; i < likedSong.length; i++) if (likedSong[i] === songTracker) {
+                likedSong.splice(i, 1);
+                LIKEBTN.classList.remove("active");
+            }
+        } else {
+            LIKEBTN.classList.add("active");
+            likedSong.push(songTracker);
+        }
+    }));
     songs.forEach(addPlaylists);
     function addPlaylists() {
         if (songTracker > songs.length - 1) songTracker = 0;
         if (songTracker < 0) songTracker = 0;
+        if (likedSong.includes(songTracker)) LIKEBTN.classList.add("active"); else if (!likedSong.includes(songTracker)) LIKEBTN.classList.remove("active");
         BLURIMG.src = songs[songTracker].imgSrc;
         COVERIMG.src = songs[songTracker].imgSrc;
         SONGNAME.innerHTML = songs[songTracker].songName;
