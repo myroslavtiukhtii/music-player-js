@@ -49,6 +49,31 @@
         songName: "In the End",
         audioSrc: "https://upload.wikimedia.org/wikipedia/en/4/48/In_the_End.ogg",
         imgSrc: "./img/pictures/LinkinParkIntheEnd.jpg"
+    }, {
+        artist: "Eminem",
+        songName: "Godzilla",
+        audioSrc: "https://upload.wikimedia.org/wikipedia/en/e/ec/Eminem_-_Godzilla_featuring_Juice_Wrld.ogg",
+        imgSrc: "./img/pictures/Godzilla.jpg"
+    }, {
+        artist: "Dua Lipa",
+        songName: "Don't Start Now",
+        audioSrc: "https://upload.wikimedia.org/wikipedia/en/7/7e/Dua_Lipa_Don%27t_Start_Now.ogg",
+        imgSrc: "./img/pictures/Dua_Lipa_-_Don't_Start_Now.png"
+    }, {
+        artist: "Mark Ronson",
+        songName: "Uptown Funk",
+        audioSrc: "https://upload.wikimedia.org/wikipedia/en/f/fd/Uptown_Funk.ogg",
+        imgSrc: "./img/pictures/Mark_Ronson_-_Uptown_Funk_(feat._Bruno_Mars)_(Official_Single_Cover).png"
+    }, {
+        artist: "Adele",
+        songName: "Hello",
+        audioSrc: "https://upload.wikimedia.org/wikipedia/en/f/f4/Adele_-_Hello_Clip.ogg",
+        imgSrc: "./img/pictures/Adele_-_Hello_(Official_Single_Cover).png"
+    }, {
+        artist: "Beatles",
+        songName: "All you need is love",
+        audioSrc: "https://upload.wikimedia.org/wikipedia/en/2/29/All_You_Need_Is_Love.ogg",
+        imgSrc: "./img/pictures/All_You_Need_Is_Love_(Beatles_single_-_cover_art).jpg"
     } ];
     AUDIO.addEventListener("loadedmetadata", (() => {
         setSliderMax();
@@ -151,6 +176,28 @@
         MUTEBTN.classList.toggle("active");
         AUDIO.muted = !AUDIO.muted;
     }
+    const PLAYLISTBTN = document.querySelector(".main__btnplaylist");
+    const PLAYLISTMENU = document.querySelector(".main_playlist");
+    PLAYLISTBTN.addEventListener("click", script_menuOpen);
+    function script_menuOpen() {
+        PLAYLISTMENU.classList.toggle("active");
+    }
+    songs.forEach(((item, index) => {
+        let li = document.createElement("li");
+        li.classList.add("playlist__item");
+        li.insertAdjacentHTML("afterbegin", `\n    <div class="playlist__number">${index + 1}</div>\n    <img class="playlist__cover" src="${item.imgSrc}" alt="Picture cover">\n    <div class="playlist__titles">\n        <h2 class="playlist__song-name">${item.songName}</h2>\n        <h3 class="playlist__song-artist">${item.artist}</h3>\n    </div>`);
+        PLAYLISTMENU.appendChild(li);
+    }));
+    const PLAYLISTITEM = document.querySelectorAll(".playlist__item");
+    for (let i = 0; i < PLAYLISTITEM.length; i++) PLAYLISTITEM[i].addEventListener("click", (() => {
+        songTracker = i;
+        addPlaylists();
+        if (playState = true) AUDIO.play();
+        AUDIO.currentTime = 0;
+        PLAYBTN.classList.add("active");
+        COVERIMG.classList.add("active");
+        script_menuOpen();
+    }));
     window["FLS"] = true;
     isWebp();
 })();
