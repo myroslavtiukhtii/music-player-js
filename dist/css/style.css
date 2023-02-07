@@ -145,6 +145,10 @@ svg path {
      object-fit: contain;
 }
 
+body {
+  background-color: #f1f1f1;
+}
+
 /* width */
 
 ::-webkit-scrollbar {
@@ -221,10 +225,6 @@ a {
   }
 }
 
-body {
-  background-color: #888;
-}
-
 /*
 .icon-menu {
 	display: none;
@@ -278,7 +278,49 @@ body {
 */
 
 .main {
+  position: relative;
   min-height: 100vh;
+  overflow: hidden;
+}
+
+.main .mousemove {
+  overflow: hidden;
+}
+
+.main .mousemove .parallax-img-1 {
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  height: auto;
+  z-index: -1;
+}
+
+.main .mousemove .parallax-img-2 {
+  position: absolute;
+  right: -1%;
+  top: -5%;
+  height: auto;
+  z-index: -1;
+}
+
+.main .mousemove .parallax-img-3 {
+  position: absolute;
+  top: 35%;
+  z-index: -1;
+}
+
+.main .mousemove .parallax-img-4 {
+  position: absolute;
+  top: 55%;
+  right: 5%;
+  z-index: -1;
+}
+
+.main .mousemove .parallax-img-5 {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  z-index: -1;
 }
 
 .main__container .main__block {
@@ -733,4 +775,110 @@ body {
           transform: rotate(45deg);
   opacity: 1;
   scale: 1.1;
+}
+
+@media (min-width: 75em) {
+  .main .mousemove .parallax-img-1 {
+    width: 46.875rem;
+  }
+
+  .main .mousemove .parallax-img-2 {
+    width: 46.875rem;
+  }
+
+  .main .mousemove .parallax-img-3 {
+    width: 28.125rem;
+  }
+
+  .main .mousemove .parallax-img-4 {
+    width: 28.125rem;
+  }
+
+  .main .mousemove .parallax-img-5 {
+    width: 21.875rem;
+  }
+}
+
+@media (max-width: 20em) {
+  .main .mousemove .parallax-img-1 {
+    width: 15.625rem;
+  }
+
+  .main .mousemove .parallax-img-2 {
+    width: 15.625rem;
+  }
+
+  .main .mousemove .parallax-img-3 {
+    width: 9.375rem;
+  }
+
+  .main .mousemove .parallax-img-4 {
+    width: 9.375rem;
+  }
+
+  .main .mousemove .parallax-img-5 {
+    width: 9.375rem;
+  }
+}
+
+@media (min-width: 20em) and (max-width: 75em) {
+@supports (width: clamp( 15.625rem , 4.2613636364rem  +  56.8181818182vw , 46.875rem )) {
+    .main .mousemove .parallax-img-1 {
+      width: clamp( 15.625rem , 4.2613636364rem  +  56.8181818182vw , 46.875rem );
+    }
+}
+
+@supports not (width: clamp( 15.625rem , 4.2613636364rem  +  56.8181818182vw , 46.875rem )) {
+    .main .mousemove .parallax-img-1 {
+      width: calc(15.625rem + 31.25 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (width: clamp( 15.625rem , 4.2613636364rem  +  56.8181818182vw , 46.875rem )) {
+    .main .mousemove .parallax-img-2 {
+      width: clamp( 15.625rem , 4.2613636364rem  +  56.8181818182vw , 46.875rem );
+    }
+}
+
+@supports not (width: clamp( 15.625rem , 4.2613636364rem  +  56.8181818182vw , 46.875rem )) {
+    .main .mousemove .parallax-img-2 {
+      width: calc(15.625rem + 31.25 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (width: clamp( 9.375rem , 2.5568181818rem  +  34.0909090909vw , 28.125rem )) {
+    .main .mousemove .parallax-img-3 {
+      width: clamp( 9.375rem , 2.5568181818rem  +  34.0909090909vw , 28.125rem );
+    }
+}
+
+@supports not (width: clamp( 9.375rem , 2.5568181818rem  +  34.0909090909vw , 28.125rem )) {
+    .main .mousemove .parallax-img-3 {
+      width: calc(9.375rem + 18.75 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (width: clamp( 9.375rem , 2.5568181818rem  +  34.0909090909vw , 28.125rem )) {
+    .main .mousemove .parallax-img-4 {
+      width: clamp( 9.375rem , 2.5568181818rem  +  34.0909090909vw , 28.125rem );
+    }
+}
+
+@supports not (width: clamp( 9.375rem , 2.5568181818rem  +  34.0909090909vw , 28.125rem )) {
+    .main .mousemove .parallax-img-4 {
+      width: calc(9.375rem + 18.75 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (width: clamp( 9.375rem , 4.8295454545rem  +  22.7272727273vw , 21.875rem )) {
+    .main .mousemove .parallax-img-5 {
+      width: clamp( 9.375rem , 4.8295454545rem  +  22.7272727273vw , 21.875rem );
+    }
+}
+
+@supports not (width: clamp( 9.375rem , 4.8295454545rem  +  22.7272727273vw , 21.875rem )) {
+    .main .mousemove .parallax-img-5 {
+      width: calc(9.375rem + 12.5 * (100vw - 20rem) / 55);
+    }
+}
 }
