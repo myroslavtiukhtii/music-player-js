@@ -146,7 +146,7 @@ svg path {
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #af9797;
 }
 
 /* width */
@@ -526,6 +526,9 @@ a {
   width: 30px;
   height: 30px;
   fill: #fff;
+  -webkit-transition: 0.3s ease-in;
+  -o-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
 }
 
 .main__container .main__block .main__buttons .buttons__play {
@@ -537,9 +540,9 @@ a {
   border-radius: 50%;
   -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
           box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  -webkit-transition: 0.1s ease-in;
-  -o-transition: 0.1s ease-in;
-  transition: 0.1s ease-in;
+  -webkit-transition: 0.3s ease-in;
+  -o-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
 }
 
 .main__container .main__block .main__buttons .buttons__play .icon {
@@ -548,9 +551,9 @@ a {
   border-style: solid;
   border-width: 20px 0px 20px 40px;
   border-color: transparent transparent transparent #ffffff;
-  -webkit-transition: all 0.1s ease-in;
-  -o-transition: all 0.1s ease-in;
-  transition: all 0.1s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .main__container .main__block .main__buttons .buttons__play.active .icon {
@@ -578,6 +581,9 @@ a {
   width: 30px;
   height: 30px;
   fill: #fff;
+  -webkit-transition: 0.3s ease-in;
+  -o-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
 }
 
 .main__container .main__block .main__buttons .buttons__seek {
@@ -640,30 +646,41 @@ a {
   background: #fff;
 }
 
+.main__container .main__block .main__buttons .buttons__seek input[type=range]:active::-webkit-slider-thumb {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  background: #d8d8d8;
+}
+
 .main__container .main__block .main__buttons .buttons__seek input[type=range]::-moz-range-track {
   width: 100%;
-  height: 10px;
+  height: 2px;
   cursor: pointer;
   animate: 0.2s;
   box-shadow: 1px 1px 1px #000000;
   background: #fff;
-  border-radius: 50%;
   border: 1px solid transparent;
 }
 
 .main__container .main__block .main__buttons .buttons__seek input[type=range]::-moz-range-thumb {
   box-shadow: 1px 1px 1px #000000;
   border: 1px solid transparent;
-  height: 30px;
+  border: 1px solid #000;
+  height: 15px;
   width: 15px;
   border-radius: 50%;
-  background: #fff;
+  background: #FFFFFF;
   cursor: pointer;
+}
+
+.main__container .main__block .main__buttons .buttons__seek input[type=range]:active::-moz-range-thumb {
+  transform: scale(1.2);
+  background: #d8d8d8;
 }
 
 .main__container .main__block .main__buttons .buttons__seek input[type=range]::-ms-track {
   width: 100%;
-  height: 10px;
+  height: 2px;
   cursor: pointer;
   animate: 0.2s;
   background: transparent;
@@ -688,20 +705,26 @@ a {
 .main__container .main__block .main__buttons .buttons__seek input[type=range]::-ms-thumb {
   margin-top: 1px;
   box-shadow: 1px 1px 1px #000000;
-  border: 1px solid #000000;
-  height: 30px;
+  border: 1px solid #000;
+  height: 15px;
   width: 15px;
-  border-radius: 5px;
-  background: #fff;
+  border-radius: 50%;
+  background: #FFFFFF;
   cursor: pointer;
 }
 
 .main__container .main__block .main__buttons .buttons__seek input[type=range]:focus::-ms-fill-lower {
-  background: #707070;
+  background: #ffffff;
 }
 
 .main__container .main__block .main__buttons .buttons__seek input[type=range]:focus::-ms-fill-upper {
-  background: #707070;
+  background: #ffffff;
+}
+
+.main__container .main__block .main__buttons .buttons__seek input[type=range]:active::-ms-thumb {
+  -ms-transform: scale(1.2);
+      transform: scale(1.2);
+  background: #d8d8d8;
 }
 
 .main__container .main__block .main__buttons .buttons__bottom {
@@ -821,6 +844,12 @@ a {
   }
 }
 
+@media (max-width: 61.99875em) {
+  .main .mousemove {
+    display: none;
+  }
+}
+
 @media (min-width: 20em) and (max-width: 75em) {
 @supports (width: clamp( 15.625rem , 4.2613636364rem  +  56.8181818182vw , 46.875rem )) {
     .main .mousemove .parallax-img-1 {
@@ -881,4 +910,18 @@ a {
       width: calc(9.375rem + 12.5 * (100vw - 20rem) / 55);
     }
 }
+}
+
+@media (any-hover: hover) {
+  .main__container .main__block .main__buttons .buttons__prev:hover .icon {
+    fill: #b3b3b3;
+  }
+
+  .main__container .main__block .main__buttons .buttons__play:hover .icon {
+    border-color: transparent transparent transparent #b3b3b3;
+  }
+
+  .main__container .main__block .main__buttons .buttons__next:hover .icon {
+    fill: #b3b3b3;
+  }
 }
